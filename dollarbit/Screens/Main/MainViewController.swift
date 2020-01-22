@@ -7,59 +7,54 @@
 //
 
 import UIKit
-import CFNetwork
 
 class MainViewController: UIViewController {
     
-    let webSocketTask = URLSession(configuration: .default).webSocketTask(with: URL(string: "wss://quotes.eccalls.mobi:18400/")!)
+    @IBOutlet weak var candleStickChart: CandlestickChartView!
+    var timer: Timer?
+    let candlestickGenerator = RandomCandlestickGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.connectToWebSocket()
-        self.subscribeBtcUsd()
-        self.receiveData()
+        // demo generator candles
+        //candleStickChart.candlestickArray = candlestickGenerator.randomCandlesticks(withNumber: 1)
+        //candleStickChart.reset()
+        WSManager.shared.connectToWebSocket()
+        WSManager.shared.subscribeBtcUsd()
+        self.drawCandleSticks()
     }
     
-    private func connectToWebSocket() {
-        webSocketTask.resume()
-    }
     
-    private func subscribeBtcUsd() {
-        let message = URLSessionWebSocketTask.Message.string("SUBSCRIBE: BTCUSD")
-        webSocketTask.send(message) { error in
-            if let error = error {
-                print("WebSocket couldn’t send message because: \(error)")
+    @objc
+    private func drawCandleSticks() {
+        WSManager.shared.receiveData() { [weak self] (data) in
+            guard let self = self else { return }
+            guard let data = data else { return }
+            if data.count > 0 {
+                self.candleStickChart.candlestickArray = data
             }
+            self.startWebSocketLoop()
+            debugPrint("out candlesticks", data)
         }
     }
+
     
-    private func unSubscribeBtcUsd() {
-           let message = URLSessionWebSocketTask.Message.string("UNSUBSCRIBE: BTCUSD")
-           webSocketTask.send(message) { error in
-               if let error = error {
-                   print("WebSocket couldn’t send message because: \(error)")
-               }
-           }
-       }
+}
+
+extension MainViewController {
     
-    private func receiveData() {
-      webSocketTask.receive { result in
-        switch result {
-            case .failure(let error):
-              print("Error in receiving message: \(error)")
-            case .success(let message):
-              switch message {
-                case .string(let text):
-                    print("Received string: \(text)")
-                case .data(let data):
-                    print("Received data: \(data)")
-              @unknown default:
-                debugPrint("Unknown message")
-              }
-          self.receiveData()
+    func startWebSocketLoop() {
+      if timer == nil {
+        timer = Timer.scheduledTimer(timeInterval: 59.0,
+                                    target: self,
+                                    selector: #selector(drawCandleSticks),
+                                    userInfo: nil,
+                                    repeats: true)
+        if let timer = timer {
+            RunLoop.current.add(timer, forMode: .common)
+            timer.tolerance = 0.1
         }
       }
     }
     
 }
-

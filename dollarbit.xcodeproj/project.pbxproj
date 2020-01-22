@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E702927223D7B53D0084CFBF /* Tick.swift in Sources */ = {isa = PBXBuildFile; fileRef = E702927123D7B53D0084CFBF /* Tick.swift */; };
+		E749284023D870200099A958 /* WSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749283F23D870200099A958 /* WSManager.swift */; };
+		E749284223D876600099A958 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749284123D876600099A958 /* Extension.swift */; };
+		E74BF08023D8F1BD00CD7025 /* CandleStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74BF07F23D8F1BD00CD7025 /* CandleStick.swift */; };
+		E74BF08223D8F28900CD7025 /* CandleStickChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74BF08123D8F28900CD7025 /* CandleStickChartView.swift */; };
+		E77070C923D8FD1A001310C1 /* RandomCandleStickGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77070C823D8FD1A001310C1 /* RandomCandleStickGenerator.swift */; };
+		E77070CB23D8FE3A001310C1 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77070CA23D8FE3A001310C1 /* TimerManager.swift */; };
 		E787C75E23D6510400FF6F3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E787C75D23D6510400FF6F3B /* AppDelegate.swift */; };
 		E787C76223D6510400FF6F3B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E787C76123D6510400FF6F3B /* MainViewController.swift */; };
 		E787C76523D6510400FF6F3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E787C76323D6510400FF6F3B /* Main.storyboard */; };
@@ -17,6 +23,12 @@
 
 /* Begin PBXFileReference section */
 		E702927123D7B53D0084CFBF /* Tick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tick.swift; sourceTree = "<group>"; };
+		E749283F23D870200099A958 /* WSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSManager.swift; sourceTree = "<group>"; };
+		E749284123D876600099A958 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E74BF07F23D8F1BD00CD7025 /* CandleStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStick.swift; sourceTree = "<group>"; };
+		E74BF08123D8F28900CD7025 /* CandleStickChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickChartView.swift; sourceTree = "<group>"; };
+		E77070C823D8FD1A001310C1 /* RandomCandleStickGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCandleStickGenerator.swift; sourceTree = "<group>"; };
+		E77070CA23D8FE3A001310C1 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		E787C75A23D6510400FF6F3B /* dollarbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dollarbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E787C75D23D6510400FF6F3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E787C76123D6510400FF6F3B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -37,12 +49,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E702927023D7B5300084CFBF /* Model */ = {
+		E702927023D7B5300084CFBF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E74BF07F23D8F1BD00CD7025 /* CandleStick.swift */,
 				E702927123D7B53D0084CFBF /* Tick.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E702927523D7B8BB0084CFBF /* Support Files */ = {
@@ -67,11 +80,32 @@
 		E740B21823D7BABE004C5F67 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E702927023D7B5300084CFBF /* Model */,
+				E74BF08323D8F35800CD7025 /* Views */,
+				E749283E23D870120099A958 /* Managers */,
+				E702927023D7B5300084CFBF /* Models */,
 				E787C76323D6510400FF6F3B /* Main.storyboard */,
 				E787C76123D6510400FF6F3B /* MainViewController.swift */,
+				E749284123D876600099A958 /* Extension.swift */,
+				E77070C823D8FD1A001310C1 /* RandomCandleStickGenerator.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		E749283E23D870120099A958 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E749283F23D870200099A958 /* WSManager.swift */,
+				E77070CA23D8FE3A001310C1 /* TimerManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E74BF08323D8F35800CD7025 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E74BF08123D8F28900CD7025 /* CandleStickChartView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E787C75123D6510400FF6F3B = {
@@ -170,9 +204,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E749284223D876600099A958 /* Extension.swift in Sources */,
 				E702927223D7B53D0084CFBF /* Tick.swift in Sources */,
+				E77070C923D8FD1A001310C1 /* RandomCandleStickGenerator.swift in Sources */,
 				E787C76223D6510400FF6F3B /* MainViewController.swift in Sources */,
 				E787C75E23D6510400FF6F3B /* AppDelegate.swift in Sources */,
+				E74BF08023D8F1BD00CD7025 /* CandleStick.swift in Sources */,
+				E77070CB23D8FE3A001310C1 /* TimerManager.swift in Sources */,
+				E749284023D870200099A958 /* WSManager.swift in Sources */,
+				E74BF08223D8F28900CD7025 /* CandleStickChartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

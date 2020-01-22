@@ -18,15 +18,15 @@ struct Tick: Decodable {
     let askPrice: String?
 
     enum CodingKeys: String, CodingKey {
-        case s = "stockName"
-        case b = "bidPrice"
-        case a = "askPrice"
+        case stockName = "s"
+        case bidPrice = "b"
+        case askPrice = "a"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        stockName = try values.decodeIfPresent(String.self, forKey: .s)
-        bidPrice = try values.decodeIfPresent(String.self, forKey: .b)
-        askPrice = try values.decodeIfPresent(String.self, forKey: .a)
+        stockName = try values.decodeIfPresent(String.self, forKey: .stockName)
+        bidPrice = try values.decodeIfPresent(String.self, forKey: .bidPrice)
+        askPrice = try values.decodeIfPresent(String.self, forKey: .askPrice)
     }
 }
