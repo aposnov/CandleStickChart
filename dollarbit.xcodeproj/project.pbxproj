@@ -61,6 +61,7 @@
 		E702927523D7B8BB0084CFBF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				E749284123D876600099A958 /* Extension.swift */,
 				E787C75D23D6510400FF6F3B /* AppDelegate.swift */,
 				E787C76623D6510500FF6F3B /* Assets.xcassets */,
 				E787C76823D6510500FF6F3B /* LaunchScreen.storyboard */,
@@ -81,12 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				E74BF08323D8F35800CD7025 /* Views */,
-				E749283E23D870120099A958 /* Managers */,
 				E702927023D7B5300084CFBF /* Models */,
 				E787C76323D6510400FF6F3B /* Main.storyboard */,
 				E787C76123D6510400FF6F3B /* MainViewController.swift */,
-				E749284123D876600099A958 /* Extension.swift */,
-				E77070C823D8FD1A001310C1 /* RandomCandleStickGenerator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -94,6 +92,7 @@
 		E749283E23D870120099A958 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E77070C823D8FD1A001310C1 /* RandomCandleStickGenerator.swift */,
 				E749283F23D870200099A958 /* WSManager.swift */,
 				E77070CA23D8FE3A001310C1 /* TimerManager.swift */,
 			);
@@ -127,6 +126,7 @@
 		E787C75C23D6510400FF6F3B /* dollarbit */ = {
 			isa = PBXGroup;
 			children = (
+				E749283E23D870120099A958 /* Managers */,
 				E702927623D7B8D70084CFBF /* Screens */,
 				E702927523D7B8BB0084CFBF /* Support Files */,
 			);
