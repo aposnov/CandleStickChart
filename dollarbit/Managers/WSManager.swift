@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CFNetwork
 
 class WSManager {
     public static let shared = WSManager()
